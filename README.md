@@ -30,5 +30,7 @@
   > InteliJ
 
 ### 2. Java Code를 Kotlin Code로 리팩토링 하기
+- 기존 자바로 구성된 Class들의 파일명을 모두 'Java~' 로 바꾸고 Kotlin으로 refactoring (23.3.15)
+
 
 ## V1/index.html = 사용자 페이지 / v2/index.html = 관리자 페이지
