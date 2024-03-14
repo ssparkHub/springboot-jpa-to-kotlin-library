@@ -1,6 +1,6 @@
 package com.group.libraryapp
 
-import com.group.libraryapp.calculator.Calculator
+import calculator.Calculator
 import org.assertj.core.api.AssertionsForInterfaceTypes.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
