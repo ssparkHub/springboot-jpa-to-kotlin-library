@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.group.libraryapp.JunitCalculatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-03-14T09:14:45" hostname="DESKTOP-NRD007D" time="0.052">
-  <properties/>
-  <testcase name="divideTest()" classname="com.group.libraryapp.JunitCalculatorTest" time="0.047"/>
-  <testcase name="addTest()" classname="com.group.libraryapp.JunitCalculatorTest" time="0.0"/>
-  <testcase name="divideExceptionTest()" classname="com.group.libraryapp.JunitCalculatorTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
