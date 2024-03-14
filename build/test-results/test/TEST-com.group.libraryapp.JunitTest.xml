@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.group.libraryapp.JunitTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-03-14T06:50:17" hostname="DESKTOP-NRD007D" time="0.002">
+  <properties/>
+  <testcase name="test1()" classname="com.group.libraryapp.JunitTest" time="0.001"/>
+  <testcase name="test2()" classname="com.group.libraryapp.JunitTest" time="0.001"/>
+  <system-out><![CDATA[Run beforeAll() - 모든 테스트 시작 전
+Run beforeEach() - 각 테스트 시작 전
+test1
+Run afterEach() - 각 테스트 종료 후
+Run beforeEach() - 각 테스트 시작 전
+test2
+Run afterEach() - 각 테스트 종료 후
+Run afterAll() - 모든 테스트 종료 후
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
