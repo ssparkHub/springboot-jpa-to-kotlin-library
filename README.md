@@ -29,4 +29,6 @@
 
 ### 4. QueryDsl 적용하기 
 
-## V1/index.html = 사용자 페이지 / v2/index.html = 관리자 페이지
+## ETC..
+- V1/index.html = 사용자 페이지
+- v2/index.html = 관리자 페이지
