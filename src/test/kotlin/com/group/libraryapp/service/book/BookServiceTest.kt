@@ -2,6 +2,7 @@ package com.group.libraryapp.service.book
 
 import com.group.libraryapp.domain.book.Book
 import com.group.libraryapp.domain.book.BookRepository
+import com.group.libraryapp.domain.book.BookType
 import com.group.libraryapp.domain.user.User
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory
@@ -35,20 +36,21 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("책 등록 테스트")
     fun saveBookTest() {
         // given
-        val request = BookRequest("파수꾼의 숲")
+        val request = BookRequest("클린 코드", BookType.COMPUTER)
         // when
         bookService.saveBook(request)
         // then
         val books = bookRepository.findAll()
         assertThat(books).hasSize(1)
-        assertThat(books[0].name).isEqualTo("파수꾼의 숲")
+        assertThat(books[0].name).isEqualTo("클린 코드")
+        assertThat(books[0].type).isEqualTo(BookType.COMPUTER)
     }
 
     @Test
     @DisplayName("책 대출 동작 테스트")
     fun loanBookTest() {
         // given
-        val loanedBook = bookRepository.save(Book("워터 댄서"))
+        val loanedBook = bookRepository.save(Book.fixture("워터 댄서"))
         val savedUser = userRepository.save(User("박성술", 31))
         val request = BookLoanRequest(savedUser.name, loanedBook.name,)
         // when
@@ -66,7 +68,7 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("대출된 책, 재 대출 실패 테스트")
     fun loanBookFailTest() {
         // given
-        val loanedBook = bookRepository.save(Book("워터 댄서"))
+        val loanedBook = bookRepository.save(Book.fixture("워터 댄서"))
         val savedUser = userRepository.save(User("박성술", 31))
         userLoanHistoryRepository.save(
             UserLoanHistory(
@@ -90,7 +92,7 @@ class BookServiceTest @Autowired constructor(
     fun returnBookTest() {
 
         // given
-        val loanedBook = bookRepository.save(Book("워터 댄서"))
+        val loanedBook = bookRepository.save(Book.fixture("워터 댄서"))
         val savedUser = userRepository.save(User("박성술", 31))
         userLoanHistoryRepository.save(
             UserLoanHistory(
