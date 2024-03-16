@@ -5,6 +5,7 @@ import com.group.libraryapp.domain.book.BookRepository
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository
 import com.group.libraryapp.domain.user.loanhistory.UserLoanStatus
+import com.group.libraryapp.dto.book.reponse.BookStatResponse
 import com.group.libraryapp.dto.book.request.BookLoanRequest
 import com.group.libraryapp.dto.book.request.BookRequest
 import com.group.libraryapp.dto.book.request.BookReturnRequest
@@ -42,4 +43,24 @@ class BookService(
         user.returnBook(request.bookName)
     }
 
+    @Transactional(readOnly = true)
+    fun countLoanedBook(): Int {
+        return userLoanHistoryRepository.findAllByStatus(UserLoanStatus.LOANED).size
+    }
+
+    @Transactional(readOnly = true)
+    fun getBookStatistics(): List<BookStatResponse> {
+
+        return bookRepository.findAll() // List<Book>
+            .groupBy { book -> book.type } // Map<BookType, List<Book>>
+            .map { (type, books) -> BookStatResponse(type, books.size) } // List<BookStatResponse>
+
+//        val results = mutableListOf<BookStatResponse>()
+//        val books = bookRepository.findAll()
+//        for (book in books) {
+//            results.firstOrNull { dto -> book.type == dto.type }?.plusOne()
+//                ?: results.add(BookStatResponse(book.type, 1))
+//        }
+//        return results
+    }
 }
